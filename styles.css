@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juno</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-wrap">
+          <div class="brand-mark">J</div>
+          <div>
+            <p class="eyebrow">AI LAB</p>
+            <h1>Juno</h1>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Main navigation">
+          <button class="nav-button active" data-tab="chat" type="button">
+            <span>Chat</span>
+          </button>
+          <button class="nav-button" data-tab="experiments" type="button">
+            <span>Experiments</span>
+          </button>
+        </nav>
+
+        <div class="model-panel">
+          <p class="panel-label">AVAILABLE MODELS</p>
+          <div class="model-card active">
+            <div>
+              <strong>Juno Core</strong>
+              <span>v0.1</span>
+            </div>
+            <small>Simple chat</small>
+          </div>
+          <div class="model-card">
+            <div>
+              <strong>Juno Imagine</strong>
+              <span>v0.1</span>
+            </div>
+            <small>Pixel art</small>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <section class="tab-panel active" id="chat-tab" aria-label="Chat panel">
+          <header class="topbar">
+            <div>
+              <p class="eyebrow">CHAT</p>
+              <h2>Juno Core v0.1</h2>
+            </div>
+            <span class="status-pill">Online</span>
+          </header>
+
+          <div class="chat-box" id="chat-box" aria-live="polite">
+            <div class="message assistant">
+              <div class="avatar">J</div>
+              <div class="bubble">
+                <p>Hello! I’m Juno Core v0.1. Ask me anything, and I’ll keep it simple and helpful.</p>
+              </div>
+            </div>
+          </div>
+
+          <form class="composer" id="chat-form">
+            <input
+              id="chat-input"
+              type="text"
+              placeholder="Type your message..."
+              aria-label="Type your message"
+            />
+            <button type="submit">Send</button>
+          </form>
+        </section>
+
+        <section class="tab-panel" id="experiments-tab" aria-label="Experiments panel">
+          <header class="topbar">
+            <div>
+              <p class="eyebrow">EXPERIMENTS</p>
+              <h2>Juno Imagine v0.1</h2>
+            </div>
+            <span class="status-pill beta">Beta</span>
+          </header>
+
+          <div class="experiment-layout">
+            <div class="experiment-form">
+              <label for="prompt-input">Prompt</label>
+              <textarea id="prompt-input" rows="4" placeholder="e.g. A tiny forest shrine in the morning, pixel art style"></textarea>
+
+              <div class="preset-row">
+                <button class="preset-button" type="button" data-preset="Forest Shrine">Forest Shrine</button>
+                <button class="preset-button" type="button" data-preset="Neon Alley">Neon Alley</button>
+                <button class="preset-button" type="button" data-preset="Moon Camp">Moon Camp</button>
+              </div>
+
+              <button class="generate-button" id="generate-button" type="button">Generate Pixel Art</button>
+            </div>
+
+            <div class="art-panel">
+              <div class="art-header">
+                <span>Preview</span>
+                <span class="license-badge">Original / licensed-safe tiles</span>
+              </div>
+              <div class="pixel-art-wrap">
+                <canvas id="pixel-art-canvas" width="256" height="256" aria-label="Generated pixel art preview"></canvas>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
